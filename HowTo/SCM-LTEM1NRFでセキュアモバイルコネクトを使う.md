@@ -51,15 +51,15 @@ UARTで通信するので,
 いざ取り組んでみるといくつか注意点があった.  
 
 * 注意1 [公式ドキュメント](https://manual.sakura.ad.jp/cloud/iotpf/latest-pcb-files.html)からリンクされている[サンプルコード](https://github.com/sakura-internet/sipf-std-client_nrf9160)はNordicのSDK(v1.7.1)が古すぎてビルドできない.(2023.05.26時点)  
-  最新SDK対応のプロジェクトはGitHubをあさらないと見つけられない.  
+  最新SDK対応のプロジェクトはGitHubを漁らないと見つけられない.  
 
-* 注意2 VSコード向け拡張機能からアプリを作成使用とするとテンプレートやビルドのターゲット基板選択時にどれを選んでいいのが分からない.(どれでもそれなりには動くとは思うけど)  
+* 注意2 VSコード向け拡張機能からアプリを作成しようとするとテンプレートやビルドのターゲット基板選択時にどれを選んでいいのが分からない.(どれでもそれなりには動くとは思うけど)  
   とりあえず動かすレベルの現段階では[サンプルコード]([下記](https://github.com/sakura-internet/sipf-lib_sample_app_tx_nrf9160))を使うのが無難だと判断した.  
 
 ## 実際に行った手順
 
 上記**注意**を踏まえた上で以降の手順で書換えを行った.  
-各ソフトウェアのバージョンはその都度そろえること.  
+※各ソフトウェアのバージョンはその都度そろえること.  
 ※**nRF Connect for Desktop**の使い方に関しては[ハードウェア仕様書](https://manual.sakura.ad.jp/cloud/_downloads/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2%E4%BB%95%E6%A7%98%E6%9B%B8_DIP%E5%9E%8BLTE%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E5%9F%BA%E6%9D%BF_SCM-LTEM1NRF.pdf)を参考にすること.  
 
 1. [**nRF Connect for Desktop**](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-desktop/Download)をインストール.  
@@ -71,9 +71,9 @@ UARTで通信するので,
 7. VS CODEの拡張機能**NRF CONNECT**をインストールし、プロジェクトをビルドする.  
 8. [ハードウェア仕様書](https://manual.sakura.ad.jp/cloud/_downloads/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2%E4%BB%95%E6%A7%98%E6%9B%B8_DIP%E5%9E%8BLTE%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E5%9F%BA%E6%9D%BF_SCM-LTEM1NRF.pdf)に従って配線する.  
    ![J-Link接続.png](../Image/J-Link接続.png)  
-9. **nRF Connect for Desktop**のProgrammerからサンプルアプリのbuild > zephyr > merged.hexを書込む.  
-10. [nrf9160DKの最新ファームウェア](https://www.nordicsemi.com/Products/Development-hardware/nRF9160-DK/Download#infotabs)(例 : mfw_nrf9160_1.3.4.zip)をダウンロードする.  
-11. **nRF Connect for Desktop**のProgrammerから[nrf9160DKの最新ファームウェア](https://www.nordicsemi.com/Products/Development-hardware/nRF9160-DK/Download#infotabs)を書込む.  
+9. **nRF Connect for Desktop**のProgrammerから[サンプルアプリ](https://github.com/sakura-internet/sipf-lib_sample_app_tx_nrf9160)のbuild > zephyr > merged.hexを書込む.  
+10. [nRF9160DKの最新ファームウェア](https://www.nordicsemi.com/Products/Development-hardware/nRF9160-DK/Download#infotabs)(例 : mfw_nrf9160_1.3.4.zip)をダウンロードする.  
+11. **nRF Connect for Desktop**のProgrammerから[nRF9160DKの最新ファームウェア](https://www.nordicsemi.com/Products/Development-hardware/nRF9160-DK/Download#infotabs)を書込む.  
 
 以上よりファームウェアを書き換えることができる.  
 
